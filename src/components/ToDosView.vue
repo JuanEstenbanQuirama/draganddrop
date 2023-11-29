@@ -2,10 +2,11 @@
 import { reactive } from "vue";
 import InputNew from "./InputNew.vue";
 
+
 let boards = reactive([
   {
     id: crypto.randomUUID(),
-    name: "tablero 1",
+    name: "Board ToDo´s",
     items: [
       {
         id: crypto.randomUUID(),
@@ -17,20 +18,20 @@ let boards = reactive([
       },
     ],
   },
-  {
-    id: crypto.randomUUID(),
-    name: "tablero 2",
-    items: [
-      {
-        id: crypto.randomUUID(),
-        title: "probando xd",
-      },
-      {
-        id: crypto.randomUUID(),
-        title: "probando xd 2",
-      },
-    ],
-  },
+  // {
+  //   id: crypto.randomUUID(),
+  //   name: "tablero 2",
+  //   items: [
+  //     {
+  //       id: crypto.randomUUID(),
+  //       title: "probando xd",
+  //     },
+  //     {
+  //       id: crypto.randomUUID(),
+  //       title: "probando xd 2",
+  //     },
+  //   ],
+  // },
 ]);
 
 function handleNewItem(text, board) {
@@ -76,11 +77,11 @@ function deleteItem(board, item) {
 </script>
 
 <template lang="pug">
-div
-  nav
-      ul
-          li
-              a(href="#" @click.prevent="handleNewBoard") create board
+div.general-container
+  nav.nav
+    p 
+      strong Drag & Drop
+    a(href="#" @click.prevent="handleNewBoard") Create board
   .boards-container 
       .boards 
           div.board(@drop="onDrop($event, board)" @dragover.prevent @dragenter.prevent v-for="board in boards" :key="board.id") 
@@ -89,6 +90,7 @@ div
               .items 
                   .item(draggable="true" @dragstart="startDrag($event, board, item)" v-for="item in board.items" :key="item.id")
                     p {{ item.title }}
-                    button(@click="deleteItem(board, item)") delete
+                    div.botton-container
+                      button.boton(@click="deleteItem(board, item)") delete
                     
 </template>
