@@ -8,14 +8,14 @@ let boards = reactive([
     id: crypto.randomUUID(),
     name: "Board ToDo´s",
     items: [
-      {
-        id: crypto.randomUUID(),
-        title: "probando ando",
-      },
-      {
-        id: crypto.randomUUID(),
-        title: "probando ando 2",
-      },
+      // {
+      //   id: crypto.randomUUID(),
+      //   title: "probando ando",
+      // },
+      // {
+      //   id: crypto.randomUUID(),
+      //   title: "probando ando 2",
+      // },
     ],
   },
   // {
